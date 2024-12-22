@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="first_background_size">
+            <h1 class="title">게시판</h1>
+        </div>
+        <h2 class="search_div">id 찾기</h2>
+        <form action="/signup" method="post" >
+            <div style="text-align: center;">
+                <input name="nick" placeholder="닉네임">
+                <hr>
+                <input name="password" placeholder="비밀번호">
+                <button type="submit">id 찾기</button>
+            </div>
+        </form> 
+
+        {% if found_id %}
+            <div style="text-align: center; margin-top: 20px;">
+                <h3>찾은 ID: {{ id }}</h3>
+            </div>
+        {% elif error %}
+            <div style="text-align: center; color: red; margin-top: 20px;">
+                <h3>{{ error }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

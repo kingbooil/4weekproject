@@ -1,0 +1,32 @@
+.first_background_size{
+    height:200px;
+    text-align: center;
+    background-color: rgb(187,168,159);
+}
+.title{
+    text-align: center;
+    font-size : 100px;;
+    color: white;
+    line-height: 200px;
+}
+
+.main{
+    border: 2px solid black;
+    border-radius: 30px;
+    width: 1200px;
+    margin: auto;
+}
+
+.title_text{
+    margin:0 auto;
+    width:500px;
+}
+
+.textarea_div{
+    background-color: rgb(202, 203, 204);
+}
+
+.textarea{
+    width: 1000px;
+    height: 700px;
+}

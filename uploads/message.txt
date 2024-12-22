@@ -1,0 +1,342 @@
+#--------------모듈----------------
+
+import random
+import copy
+
+#-------------변수 선언-------------
+year=2000
+month=10
+day=27
+hour=11
+minute=43
+second=59
+
+#--------------입출력----------------
+
+print(year,month,day,sep='/',end=' ') #sep 은 변수 사이사이에 들어갈 문자이고 end는 공백뒤에 바로 다음 출력할것을 가지고옴
+print(minute,second,sep=':')
+print(1 is 1.0) # is 는 비교를 해주는건데 객체를 비교함 이 코드는 정수(int)와 실수(float)을 is 로 비교하고 있으니 flase가 뜸.
+print(id(year)) # id 는 메모리주소 를 구함
+korean=92
+english=47
+science=82
+mathematics=86
+print(korean>50 and english>50 and science>50 and mathematics>50)
+hello='''안녕하세요
+저는 바로 
+바보입니다.''' # 이건 여러줄을 한번에 저장하고 싶을때 사용함 문자열 앞에 작은따음표(') 또는 큰 따음표(") 를 세개로 감싸주면 됨
+print(hello)
+print("i'm minjun",end=' ')
+print('그가 말했다"나는 죽지 않았다"라고') # 문자열 안에 작은따음표(') 또는 큰따음표 (") 를 쓰고싶다면 문자열을 감싸는것과 다른것을 써야함 ex("i'm minun")
+s='''Python is a programming language that lets you work quickly
+and
+integrate systems more effectively.'''
+print(s)
+#------------------리스트 and 튜플--------------------
+a=list(range(5,1,-1)) #리스트를 생성함 (a=[1,2,3,4]도 가능) 빈 리스트를 만들고 싶다면 a=list() 또는 a=[] 이런식으로 해주면 됨
+print(a)
+b=tuple(range(5,1,-1)) #튜플을 생성함 (b=(1,2,3,4)도 가능) 빈 튜플을 만들고 싶다면 b=tuple() 또는 b=() 이렇게 해주면됨
+print(b)
+c=tuple('hello') #리스트 또는 튜플 에다가 문자열을 넣으면 리스트가 만들어짐 ['h','e','l','l','o'] 이런식으로
+print(c)
+d=input().split(' ') #split 기준으로 분리
+print(d) 
+e=list(range(5,-10,-2))
+print(e)
+print(-10 in e) # e라는 리스트 안에 10이 있는지 확인함 e리스트는 [5,3,1,-1,-3,-5,-7,-9] 인데 -10이라는 항목은 없기 때문에 false가 반환.
+print(-10 not in e) # e 라는 리스트 안에 -10 이 없는지 확인하는 코드 e 리스트엔 -10 이 없으니 true 반환.
+print(b+c) # 시퀸스 객체를 더해서 하나의 객체로 만들수 있음
+f=list(range(0,10))+list(range(10,20)) # 시퀸스 자료형중에는 연결할수 없는 자료형이 있는데 바로 range 이다. 
+print(f) # 이때 연결을 할수있는 방법은 이러한 식으로 쓰면 된다.
+g='hello'+'world' # 이렇게 시퀸스 자료형인 문자열도 가능
+print(g)
+print(e*3) # 이러한 식으로 시퀀스 자료형은 반복하여 사용할수 있음 (range형은 안됨 ex.list(range(n*n)) 이런식으로 써주어야함.
+print(len(g)) # 이런식으로 시퀸스 자료형들을 요소들이 많은데 이걸 len() 함수를 사용하여 요수 개수를 구할수 있음.
+print(len(range(0,10)))
+print(a[2]) # a리스트에 인덱스 2번째 값을 불러오기 때문에 3이 출력됨
+print(a[-2]) # a리스트 뒤에서 2번째 값을 불러오기 때문에 3이 출력됨
+del a[2] # a 리스트에 2번째 인덱스를 지웠기 때문에 3이 출력이 되지 않음. (참고로 튜블은 자료형 특성상 지우거나 수정할수 없음.)
+print(a) # [5,4,2]
+print(e[1:4]) # 리스트 슬라이싱(이 코드는 기존에 있던 리스트를 잘라거 가져옴) 출력은 [3,1,-1] 이 나오게 됨.
+print(e[3:-2]) # 3번째 인덱스 부터 뒤에서 3번째 인덱스 까지 잘라서 가져옴 출력은 [-1,-3,-5] 출력되게 됨
+print(e[:-3]) # 처음부터 뒤에서 4번째 인덱스 까지 잘라서 가져옴 출력은 [5,3,2,-1,-3] 이 출력됨
+year2 = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+population = [10249679, 10195318, 10143645, 10103233, 10022181, 9930616, 9857426, 9838892]
+print(year2[5:])
+print(population[-3:])
+n = -32, 75, 97, -10, 9, 32, 4, -15, 0, 76, 14, 2
+print(n[1::2])
+
+
+#-------------딕셔너리-------------
+
+
+yasuo=dict() # 빈 딕셔너리 만드는법 또는 yasuo={}
+lux={'health':490,100:'mana','melee':[1,2,3]} #딕셔너리 만드는법 (키:값) 단 키에는 리스트를 사용할수 없음.
+print(lux['health'])
+print(lux[100])
+print(lux['melee'])
+yumi=dict(speed=80,키=100) # 이렇게 dict() 함수를 사용하여 딕셔너리를 만들수 있음 다만 키에 작은따음표(') 또한 큰따음표(")가 들어가면 안됨 자동으로 키는 문자열로 바뀜.
+print(yumi)
+print('speed' in yumi) # yumi 라는 딕셔너리 안에 스피드 라는 키가 있는지 확인(있기 때문에 true 반환)
+camille = {
+    'health': 575.6,
+    'health_regen': 1.7,
+    'mana': 338.8,
+    'mana_regen': 1.63,
+    'melee': 125,
+    'attack_damage': 60,
+    'attack_speed': 0.625,
+    'armor': 26,
+    'magic_resistance': 32.1,
+    'movement_speed': 340
+}
+print(camille['health'])
+print(camille['movement_speed'])
+
+
+#----------조건문---------
+
+
+x=5
+if x!=10:
+    print('ok')
+written_test = 75
+coding_test = True
+ 
+if written_test>=80 and conding_test == True:
+    print('합격')
+else:
+    print('불합격')
+x1 = int(input())
+if x1>=11 and x1<=20:
+    print('11~20')
+elif x1>=21 and x1<=30:
+    print('21~30')
+
+else:
+    print('아무것도 해당 되지 않음')
+
+for i in range(100): # 이렇게 숫자를 넣어줘서 i로 하나씩 꺼내 반복문을 해줄수 있음.
+    print('김민준은 잘생겼다.',i)
+
+x2 = [49, -17, 25, 102, 8, 62, 21]
+for i in x2: # 반복문을 시퀀스 객체를 이용하여 할수 있음.
+    print(i*10,end=' ')
+
+i=1
+while i<=100: #while 문은 이런식으로 사용할수 있음.
+    print("hello,world",i)
+    i+=1
+j=0
+while j!=3: # while 문은 원래 이럴때 많이 사용함.
+    j=random.randint(1,6) 
+    print(j)
+
+u=2
+k=5
+
+while u<=32 or k>=1:
+    print(u,k)
+    u+=u
+    k-=1    
+q = 0
+while True: 
+    if q%10==3:
+        print(q, end=' ')
+    if q>73:
+        break
+    q += 1
+print()
+
+for n in range(5):
+    for m in range(5): # 조금 
+        if m<n:
+            print(' ',end='')
+        else :
+            print('*',end='')
+    print()
+
+
+for z in range(1,101):
+    print('fizz'*(z%2==0) + 'buzz'*(z%11==0) or z)
+
+#-------------리스트 메서드-----------------
+
+a.append(10) # a라는 리스트에 10이라는 요소 추가
+a.insert(2,10) # a라는 리스트 2번째 인덱스에 10이라는 요소 추가
+a.remove(10) # a라는 리스트에 10이라는 요소 제거
+del a[2] # a라는 리스트에 2번째 인덱스 요소 제거
+a.pop(1) # a라는 리스트에 1번째 인덱스 요소를 삭제하고 그 요소를 반환함.
+a.index(10) # a라는 리스트에 요소가 10인 인덱스를 반환.(10요소가 1번째 인덱스에 있다면 1을 반환.)
+a.count(20) # a라는 리스트에 20이라는 요소가 몇개있는지 반환한다. 만약 리스트가 [20,10,99,32,20] 이라면 2를 반환.
+a.reverse() # a라는 리스트 요소를 반대로 뒤집는다.(반대 정렬)
+a.sort() # a라는 리스트를 오름차순으로 정렬 ex.[1,2,6,5,4,3] -> [1,2,3,4,5,6]
+sorted[a] # sort 와 비슷하면서도 매우 다른데 일단 정렬까지는 똑같지만 sorted는 정렬된 새로운 리스트를 생성을 한다.
+
+
+
+arr=[1,2,3,4,5] # arr이라는 리스트가 있음.
+brr=arr #이렇게 하면 arr 리스트가 brr로 복사가 되는것이 아님 b가 a리스트를 할당하게 된다.
+#그래서 나는 brr로 내용을 복사 하고싶다 하면
+brr=arr.copy() # 이렇게 .copy() 를 써주면 된다.
+for i in arr:
+    print(i)
+
+a = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india']
+b = [i for i in a if len(a)==5] # (표현식)a리스트에서 길이가 5인것들만 가져온다 이때 fruit가 앞에 하나 더 있는 이유는 임시변수 선언을 했기 때문이다.
+
+
+a = [[10,20],[30,40],[50,60]] # 2차원 리스트 생성 
+a = [[10,20],[500,600,700],[1]] # 이런걸 톱니형 리스트 라고 하는데 가로 크기가 불규칙해도 리스트가 만들어짐.
+a = ((10,20),(30,40),(50,60)) # 2차원 리스트도 있다면 2차원 튜플도 존재한다!.
+a = ([10,20],[30,40],[50,60]) # 튜플 안에 리스트를 넣는것도 가능하다. 
+a = [(10,20),(30,40),(50,60)] # 또한 리스트 안에 튜플을 넣는것도 가능하다. 
+
+
+for x,y in a:
+    print(x,y) # 이렇게 2차월 리스트를 출력할수도 있음.
+
+# for 문을 2개 쓰는 방식
+
+for i in a: # a 2차원 리스트에서 리스트를 가져옴
+    for j in i: # 그 리스트에서 값을 하나씩 가져옴
+        print(j,end=' ') # 출력을 하면서 end로 뒤에 바로 출력되게 함.
+    print() # 줄 바꿈.
+
+
+for i in range(len(a)):  # a 리스트 길이만큼 리스트 하나씩 불러옴
+    for j in range(len(a[i])):
+        print(a[i][j], end=' ')  #  불러온 리스트 i에서 하나씩 j로 가져오면서 출력함 end=' ' 뒤에 바로 출력되게 했음.
+    print()
+
+
+a = [] #리스트를 생성함
+ 
+for i in range(3):
+    line = [] # a 리스트 안에 들어갈 line 리스트 생성
+        line.append(0)  # line 리스트를 0으로 채움
+    a.append(line)  # 0으로 채운 line 리스트를 a리스트에 넣음. -> a = [[line]] == a = [[0,0]]       
+ 
+print(a) #2차원 리스트 출력
+
+#2차원 리스트를 복사하고 싶으면 깊은 복사를 쓰면 됩니다 깊은 복사는 copy.deepcopy() 인데요 한번 써봅시다.
+b = copy.deepcopy(a) #b 라는 2차원 리스트에 a라는 2차원 리스트를 복사 시켰습니다. 할당과 복사에 차이는 위에 있음. (161번째 줄)
+
+
+#------------------------리스트----------------------------
+
+a=[[[0 for i in range(3)]for j in range(4)]for k in range(2)] #3차원 리스트를 만드는 코드
+#0으로 채워진 크기가 3인 리스트 생성-> 크기 4인 리스트 안에 0으로 채워진 리스트를 채움 -> 그리고 그 리스트를 크기가 2인 리스트 안에 채움.
+#          [0,0,0]          ->    [[0,0,0],[0,0,0],[0,0,0],[0,0,0]]  -> [[[0,0,0],[0,0,0],[0,0,0],[0,0,0]],[[0,0,0],[0,0,0],[0,0,0],[0,0,0]]]
+
+
+s = 'hello  ,world'
+s.replace('world','minjun') #이렇게 원래 있던 문자열에 있는 문자를 바꿀수도 있음.
+
+s.upper() # 대문자로 변환
+s.lower() # 소문자로 변환
+
+.strip('') #이건 문자열 양쪽에 있는 특정 문자를 지워주는 코드임 만약 내가 왼쪽 특정 문자를 지우고 싶다면 .lstrip(' ') 오른쪽만 지우고 싶다면 .rstrip(' ')
+
+.ljust(10) #길이가 10인 문자열로 바꾼후에 왼쪽 정렬을함.
+.rjust(10) #     //         //    오른쪽 정렬을함.
+.center(10)#     //         //    가운데 정렬을함.
+
+#------------------------포맷팅-------------------------- 
+
+n='minjun'
+print('iam %s.'%n) #문자열은 %s 정수는 %d 실수는 %f
+print('iam {0} {1}'.format('gay','okay?')) #문자열 포맷팅이라고 하는건데 .format()안에 값을 지정해 주고 그에 맞는 인덱스를 쓰면 불러와짐.
+
+
+path = 'C:\\Users\\dojang\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe'
+x=path.split('\\')
+filename=x(-1)
+print(filename)
+
+#-----------------------------딕셔너리-----------------------------------
+
+x.setdefault('e') # x 딕셔너리에 e라는 키를 추가.
+x.setdefault('e',100) # x 딕셔너리에 e 라는 키를 추가함과 동시에 100이라는 값을 키에 지정.
+
+x.update(e=101) # x라는 딕셔너리에 e 라는 키값을 101으로 변경.
+x.popitem() # x 딕셔너리에 마지막 값을 삭제함
+x.clear() #x 딕셔너리 안에있는 모든걸 지움.
+x.get('e') #x 딕셔너리 안에있는 e 라는 키값을 가지고옴. 82번줄하고 같지만 더 짧고 간편함.
+x.items() #모든 키:값을 가져옴.
+x.keys() # 모든 키를 가져옴.
+x.values() # 모든 값을 가져옴.
+
+x=dict.fromkeys(keys) #keys 라는 리스트를 x 라는 딕셔너리 으로 하나씩 가져오면서 키로 지정. 값을 지정하고 싶다면 dict.fromkeys(키,값) 이렇게 해주면됨.
+
+x={'나는':17,'너는':17} #x라는 딕셔너리를 만들었다.
+
+for key,value int x.items(): # x라는 딕셔너리를 items() 명령어를 통애 키와 값을 모두 불러온 후에 출력. (이때 키만 출력하고 싶다면 x.keys() 값만 출력하고 싶다면 x.values())
+    print(key,value,end=' ')
+
+
+key = ['a', 'b', 'c', 'd']
+x = [i:j for keys,values in dict.fromkeys(key).items()] # 딕셔너리 표현식
+#dict.fromkeys() 로 새로운 쌍에 딕셔너리를 생성한후 -> items() 로 키,값 하나씩 모두 가져옴. -> 그걸 keys,values 받아서 x에 i와 j 로 딕셔너리 생성.
+                     
+me={keys:values for keys,values in dict.fromkeys(keys).item() if keys!='a'} # 키와 값을 가져올때 만약 키가 a 라면 값과 함께 가져오지 않음. -> {'b':0,'c':0,'d':0} 특정 값을 제거할때 사용.
+
+
+id={'eappleew':{'id2':5678,'id3':1234}} #이렇게 중첩 딕셔너리도 가능함 정보를 저장할때 매우 유용함.
+print(id['eappleew']['id3']) #출력은 이런식으로.
+
+pw=id.copy() #중첩 딕셔너리가 아니라면 이런식으로 복사가 가능.
+pw=copy.deepcopy(id) #중첩 딕셔너리라면 이렇게 복사.
+
+maria = {'korean': 94, 'english': 91, 'mathematics': 89, 'science': 83}
+average=(maria.values() / len(maria)) # maria 라는 딕셔너리에서 values 값만 가져오고 그걸 maria 요소 개수만큼 나눈다.
+
+
+#-----------------------------------file------------------------------------
+
+
+file=open('file.txt','w') #file.txt를 생성하고 쓰기용으로 여는코드. file.txt 가 .py 파일 안에 생성됨.
+file.write('안녕하세요 저는 10104 김민준이라고 합니다.') #파일 안에 문자열을 저장함.
+file.close() #파일을 닫아줌.
+
+
+file=open('file.txt','r') #file.txt를 읽기용으로 여는.
+s=file.read() #파일을 읽음 
+print(s) #>>> 안녕하세요 저는 10104 김민준이라고 합니다.
+file.close() #파일 닫아주기.
+
+with open('file.txt','w') as file: # 파일을 열려면 항상 닫아줘야하는데 이게 또 그렇게 귀찮을 수가 없다. 그렇기때문에 with -- as --: 를 쓰면 자동으로 파일을 닫아준다.
+    file.write('흐헤헤헤헤')
+
+
+
+#--------------------------회문판별---------------------------------
+
+dlqfur=input()
+finall='true'
+for i in range (len(dlqfur)//2):
+    if dlqfur[i]!=dlqfur[-1-i]:
+        finall='false'
+        break
+print(finall)
+
+
+#----------------------------N-gram-------------------------------
+
+
+#n-gram 이란 특정 문자열을 한글자씩 이동하면서 n개의 글자를 추출하는 코드.
+ngram=input()
+for i in range(len(ngram)-1):
+    print(ngram[i],ngram[i+1])
+
+#-------------------------------함수-------------------------------
+
+
+def me(): # 함수 선언 def 이름(): 형식으로 한다.
+    print('hello, world!') #함수안에는 실행할 코드 입력.
+
+me() #함수를 호출하는방법 함수이름() 끝.
+
+
+

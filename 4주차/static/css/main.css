@@ -1,0 +1,64 @@
+.first_background_size{
+    height:200px;
+    background-color: rgb(187,168,159);
+}
+
+.main{
+    border: 2px solid black;
+    border-radius: 30px;
+    width: 1200px;
+    margin: auto;
+}
+
+.title{
+    text-align: center;
+    font-size : 100px;;
+    color: white;
+    line-height: 200px;
+}
+
+.text{
+    text-align: center; 
+    border: 1px solid black;
+}
+
+
+.search_div{
+    text-align: center;
+    background-color: rgb(211, 205, 209);
+}
+
+.text_button{
+    width: 1048px;
+    height : 50px;
+    font-size: 25px;
+}
+
+.input{
+    width: 500px;
+    height: auto;
+}
+
+.medium_box{
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    background-color: rgb(168, 167, 165);
+}
+
+.write_button{
+    background-color: rgb(114, 141, 108);
+}
+
+
+.text_index{
+    display: inline;
+}
+
+.post_text{
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 1050px;
+    height: auto;
+}
+

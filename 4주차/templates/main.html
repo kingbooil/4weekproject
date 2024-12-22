@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="first_background_size">
+            <h1 class="title">게시판</h1>
+        </div>
+
+        <hr>
+
+        <div class="search_div">
+            {% if 'user_id' in session %}
+                <div class="auth-buttons">
+                    <span class="welcome-msg">{{ session['user_id'] }}님 환영합니다!</span>
+                    <form action="/logout" style="display: inline;">
+                        <button type="submit" >로그아웃</button>
+                    </form>
+                    <form action="/mypage" style="display: inline;">
+                        <button type="submit" >마이 페이지로</button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="auth-buttons">
+                    <form action="/login" style="display: inline;">
+                        <button type="submit" class="login-btn">로그인</button>
+                    </form>
+                    <form action="/signup" style="display: inline;">
+                        <button type="submit" class="signup-btn">회원가입</button>
+                    </form>
+                    <form action="/id_search" style="display: inline;">
+                        <button type="submit" class="signup-btn">아이디 찾기</button>
+                    </form>
+                    <form action="/search_password" style="display: inline;">
+                        <button type="submit" class="signup-btn">비밀번호 찾기</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="search_div">
+            <form method="POST">
+                <select name="search_type">
+                    <option value="all">제목&본문 검색</option>
+                    <option value="title">제목 검색</option>
+                    <option value="content">본문 검색</option>
+                </select>
+                <input class="input" name="search_text" placeholder="검색할 문자 입력">
+            </form>
+        </div>
+        <hr>
+
+        <div class="medium_box">
+            <h2 class="text_index">글 목록</h2>
+            <form action="/write" class="text_index">
+                <button type="submit" class="write_button">글쓰기</button>
+            </form>
+        </div>
+
+        <div class="post_text">
+            {% if posts %}
+                {% for post in posts %}
+                <!-- <div>
+                    <a href="/read/{{ post[0] }}">{{ post[0] }}. {{ post[1] }}</a>
+                </div>
+                -->
+                <form action="read/{{ post[0] }}">
+                    <div class="text">
+                        <button type="submit" class="text_button">{{ post[0] }} :{{ post[1] }}</button>
+                    </div>
+                </form>
+                {% endfor %}
+            {% else %}
+                <p style="text-align: center;">작성된 글이 없습니다.</p>
+            {% endif %}
+        </div>    
+    </div>
+</body>
+</html>

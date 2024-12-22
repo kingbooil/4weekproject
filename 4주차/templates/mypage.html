@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage.css') }}" type="text/css">
+</head>
+<body>
+    
+    
+
+    <div class="main">
+        <div class="first_background_size">
+            <h1 class="title">게시판</h1>
+        </div>
+        <hr>
+        {% if user[6] %}
+        <img src="{{ url_for('profile_image', filename=user[6]) }}" 
+            alt="프로필 이미지" class="profile-image">
+        {% endif %}
+        <hr>
+        <div class="search_div">
+
+            <h1>마이페이지</h1>
+        </div>
+        <hr>
+        <div class="profile-section">
+            <!-- 프로필 이미지 표시 -->
+            
+            <!-- 이미지 업로드 폼 -->
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="profile_image" accept="image/*">
+                <button type="submit">이미지 업로드</button>
+            </form>
+            
+            <a href="/">메인 페이지</a>
+            <span>|</span>
+            <a href="/mypage_update">수정페이지</a>
+            <hr>
+            <!-- 사용자 정보 표시 -->
+            <div class="user-info">
+                <h4>닉네임 : {{ user[0] }}</h4>
+                <hr>
+                <h4>아이디 : {{ user[1] }}</h4>
+                <hr>
+                <h4>학교 : {{ user[3] }}</h4>
+                <hr>
+                <h4>성별 : {{ user[4] }}</h4>
+                <hr>
+                <h4>나이 : {{ user[5] }}</h4>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

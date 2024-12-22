@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage.css') }}" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="first_background_size">
+            <h1 class="title">게시판</h1>
+        </div>
+        <hr>
+        <div class="search_div">
+            <h1>정보 수정</h1>
+        </div>
+        <form action="/mypage_update" method="post">
+            <div style="text-align: center;">
+                <hr>
+                <input name="nick" placeholder="닉네임">
+                <hr>
+                <input name="school" placeholder="학교">
+                <hr>
+                <input name="password" placeholder="비밀번호">
+                <hr>
+                <select name="gender">
+                    <option>남성</option>
+                    <option>여성</option>
+                </select>
+                <hr>
+                <input name="age" placeholder="나이">
+                <hr>
+                <button type="submit">정보 수정</button>
+            </div>
+        </form>
+    </div>     
+</body>
+</html>

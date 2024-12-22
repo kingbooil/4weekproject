@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="first_background_size">
+            <h1 class="title">게시판</h1>
+        </div>
+        <div>
+            <h2 class="search_div">로그인</h2>
+            
+            {% if error %}
+                <div style="text-align: center;">
+                    {{ error }}
+                </div>
+                
+
+            {% endif %}
+            <hr>
+            <form method="POST" action="{{ url_for('login') }}">
+                <div style="text-align: center;">
+                    <div class="form-group">
+                        <input type="text"name="id" placeholder="아이디" required>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="비밀번호" required>
+                    </div>
+                    <hr>
+                    <button type="submit">로그인</button>
+                </div>
+            </form>
+            <hr>
+            
+            <div class="signup_main">
+                <a href="{{ url_for('signup') }}">회원가입</a>
+                <span> | </span>
+                <a href="/">메인페이지</a>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
+

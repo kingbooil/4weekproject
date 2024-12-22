@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+  <head>
+    <title>pyftp</title>
+  </head>
+
+  <body>
+    <h1>Download Page</h1>
+    <a href="/">홈페이지</a><br>
+    <hr width="100%" color="black"/>
+    <h3>Download File!</h3>
+    <hr width="100%" color="black"/>
+
+
+    <form action = "http://localhost:8080/fileDown" method = "POST"enctype = "multipart/form-data">
+    <input type = "text" name = "file" />
+    <input type = "submit"/>
+
+
+    <hr width="100%" color="black"/>
+    <hr width="100%" color="black"/>
+
+
+
+    <ul>
+         {% for n in files %}
+         <li>{{n}}</li>
+         {% endfor %}
+    </ul>
+  </body>
+</html>
